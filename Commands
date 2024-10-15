@@ -1,0 +1,31 @@
+# Função principal para iniciar o bot
+def main():
+    app = Application.builder().token(TOKEN).build()
+
+    # Comandos do bot
+    app.add_handler(CommandHandler("mtrivia", start_trivia))
+    app.add_handler(CommandHandler("mdica", provide_hint))
+    app.add_handler(CommandHandler("mskip", skip_track))
+    app.add_handler(CommandHandler("mguess", guess_track))
+    app.add_handler(CommandHandler("mranking", show_ranking))
+    app.add_handler(CommandHandler("musi", musi))
+    app.add_handler(CommandHandler("addcard", add_card))
+    app.add_handler(CommandHandler("setimage", set_image))
+    app.add_handler(CallbackQueryHandler(musi_button_callback, pattern='musi_spin'))
+    app.add_handler(CommandHandler("mochila", mochila))
+    app.add_handler(CommandHandler("carta", view_card)) 
+    app.add_handler(CommandHandler("lista", list_cards))
+    app.add_handler(CommandHandler("perfil", perfil))
+    app.add_handler(CommandHandler("bio", bio))
+    app.add_handler(CommandHandler("fav", fav))
+    app.add_handler(CommandHandler("doar", doar))
+    app.add_handler(CommandHandler("comprar", comprar))
+    app.add_handler(CommandHandler("vender", vender))
+    app.add_handler (CommandHandler("doa", doa))
+    app.add_handler(CommandHandler("start", start))
+
+    # Iniciar o bot
+    app.run_polling()
+
+if __name__ == '__main__':
+    main()
